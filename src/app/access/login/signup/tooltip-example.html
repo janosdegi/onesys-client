@@ -1,0 +1,80 @@
+<!--https://stackoverflow.com/questions/59527327/how-to-show-tooltip-on-click-event-using-javascript-->
+
+<div title="Spring transaction management:
+
+### 1. Declarative Transaction Management:
+
+**Explanation**:
+Declarative transaction management in Spring allows you to define transactional behavior declaratively using annotations or XML configuration, rather than coding transaction management logic explicitly. This separation of concerns improves code readability, maintainability, and scalability.
+
+**Details**:
+- **Annotations**: Use `@Transactional` annotation to mark methods or classes as transactional. This annotation can be applied at the method level or class level.
+- **Attributes**: Customize transactional behavior using attributes such as `propagation`, `isolation`, `readOnly`, `timeout`, `rollbackFor`, `noRollbackFor`, etc.
+- **Propagation**: Defines how transactions propagate across method calls. Understand behaviors like `REQUIRED`, `REQUIRES_NEW`, `SUPPORTS`, `MANDATORY`, `NESTED`, etc.
+- **Isolation Levels**: Specify the level of isolation for transactions, including `READ_UNCOMMITTED`, `READ_COMMITTED`, `REPEATABLE_READ`, `SERIALIZABLE`.
+- **Exception Handling**: Configure which exceptions trigger transaction rollback using `rollbackFor`, `noRollbackFor`, etc.
+
+### 2. Transaction Propagation:
+
+**Explanation**:
+Transaction propagation determines how transactions propagate between nested method calls. Understanding propagation behaviors is crucial for managing transactional behavior across different layers of your application.
+
+**Details**:
+- **REQUIRED**: Default behavior. If a transaction exists, the method joins it; otherwise, a new transaction is created.
+- **REQUIRES_NEW**: Always creates a new transaction, suspending the current one if it exists.
+- **SUPPORTS**: Executes within a transaction if one exists, otherwise executes non-transactionally.
+- **MANDATORY**: Requires a transaction to be present; otherwise, it throws an exception.
+- **NESTED**: Executes within a nested transaction if a current transaction exists; otherwise, behaves like `REQUIRES_NEW`.
+
+### 3. Exception Handling and Rollback Rules:
+
+**Explanation**:
+Configuring exception handling and rollback rules is essential for ensuring data integrity and consistency. By specifying which exceptions should trigger transaction rollback, you can control transactional behavior more precisely.
+
+**Details**:
+- **rollbackFor**: Specifies exceptions for which the transaction should be rolled back.
+- **noRollbackFor**: Specifies exceptions for which the transaction should not be rolled back.
+- **Default Behavior**: By default, Spring rolls back the transaction for any runtime exception but not for checked exceptions.
+
+### 4. Transaction Isolation Levels:
+
+**Explanation**:
+Transaction isolation levels define the degree to which one transaction must be isolated from the effects of other transactions. Choosing the appropriate isolation level is crucial for maintaining data consistency and concurrency control.
+
+**Details**:
+- **READ_UNCOMMITTED**: Allows dirty reads, non-repeatable reads, and phantom reads.
+- **READ_COMMITTED**: Prevents dirty reads, but allows non-repeatable reads and phantom reads.
+- **REPEATABLE_READ**: Prevents dirty reads and non-repeatable reads, but allows phantom reads.
+- **SERIALIZABLE**: Highest isolation level, prevents dirty reads, non-repeatable reads, and phantom reads.
+
+### 5. Integration with ORM Frameworks:
+
+**Explanation**:
+Spring integrates seamlessly with ORM frameworks like Hibernate or JPA to provide transaction management support. Understanding how Spring integrates with these frameworks is essential for leveraging their capabilities effectively.
+
+**Details**:
+- **JpaTransactionManager**: Specifically designed for managing transactions in JPA-based applications.
+- **HibernateTransactionManager**: Similar to `JpaTransactionManager`, but tailored for Hibernate-based applications.
+- **Configuration**: Define `EntityManagerFactory` bean and configure transaction manager accordingly.
+
+### 6. Programmatic Transaction Management:
+
+**Explanation**:
+Although declarative transaction management is preferred in most cases, understanding programmatic transaction management can be beneficial for scenarios requiring fine-grained control over transactions.
+
+**Details**:
+- **TransactionTemplate**: Provides a simplified API for programmatic transaction management.
+- **PlatformTransactionManager**: Interface for transaction management, allowing you to work with transactions programmatically.
+
+### 7. Transaction Configuration and Best Practices:
+
+**Explanation**:
+Follow best practices for configuring transactions in Spring applications to ensure consistent and reliable transactional behavior.
+
+**Details**:
+- **Transaction Boundaries**: Clearly define transaction boundaries to avoid issues like long-running transactions or excessive database locks.
+- **Consistency**: Ensure transactional behavior is consistent across your application to maintain data integrity.
+- **Exception Handling**: Configure exception handling and rollback rules appropriately based on application requirements.
+- **Performance Optimization**: Choose appropriate isolation levels and transaction propagation behaviors to optimize performance and concurrency control.
+
+By mastering these aspects of Spring transaction management, you'll be well-equipped to design robust, transactional Spring applications effectively while ensuring data integrity and consistency.">Hover Me</div>

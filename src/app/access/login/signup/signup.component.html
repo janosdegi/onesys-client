@@ -1,0 +1,62 @@
+<div >
+
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="card">
+    <h2 class="maincolor2">Sign up</h2>
+    <div class="mb-3">
+      <label for="signupFormFirstName" class="form-label">First name</label>
+      <input type="text" class="form-control" id="signupFormFirstName" formControlName="firstname" placeholder="First name">
+      <span *ngIf="!signupForm.get('firstname').valid &&
+                    signupForm.get('firstname').touched &&
+                    signupForm.get('firstname').errors['required']" style="color:#c72020;font-weight:bold">
+        This field is required!
+      </span>
+    </div>
+    <div class="mb-3">
+      <label for="signupFormLastName" class="form-label">Last name</label>
+      <input type="text" class="form-control" id="signupFormLastName" formControlName="lastname" placeholder="Last name">
+      <span *ngIf="!signupForm.get('lastname').valid &&
+                    signupForm.get('lastname').touched &&
+                    signupForm.get('lastname').errors['required']" style="color:#c72020;font-weight:bold">
+        This field is required!
+      </span>
+    </div>
+    <div class="mb-3">
+      <label for="signupFormEmail" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="signupFormEmail" formControlName="email" placeholder="name@example.com">
+      <span *ngIf="!signupForm.get('email').valid &&
+                    signupForm.get('email').touched &&
+                    signupForm.get('email').errors['required']" style="color:#c72020;font-weight:bold">
+        This field is required!
+      </span>
+      <span *ngIf="!signupForm.get('email').valid &&
+                    signupForm.get('email').touched &&
+                    !signupForm.get('email').errors['required']" style="color:#c72020;font-weight:bold">
+        Please enter a valid email!
+      </span>
+    </div>
+    <div class="mb-3">
+      <label for="signupFormPwd" class="form-label">Password</label>
+      <input type="password" class="form-control" id="signupFormPwd" formControlName="pwd" placeholder="password">
+      <span *ngIf="!signupForm.get('pwd').valid &&
+                    signupForm.get('pwd').touched &&
+                    signupForm.get('pwd').errors['required']" style="color:#c72020;font-weight:bold">
+        This field is required!
+      </span>
+    </div>
+    <div class="mb-3">
+      <label for="signupFormPwdConfirm" class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" id="signupFormPwdConfirm" formControlName="pwdconfirm" placeholder="confirm password">
+      <span *ngIf="!signupForm.get('pwdconfirm').valid &&
+                    signupForm.get('pwdconfirm').touched &&
+                    signupForm.get('pwdconfirm').errors['pwdsdonotmatch']" style="color:#c72020;font-weight:bold">
+        The password confirmation does not match!
+      </span>
+    </div>
+    <div class="mb-3">
+      <button class="btn btn-primary mainbackgroundcolor2 floatright" type="submit" [disabled]="!signupForm.valid">Send</button>
+    </div>
+    <div class="textwithlink">
+      <p>If you already have an account, please <a class="commonlink" routerLink="/">login</a></p>
+    </div>
+  </form>
+</div>
