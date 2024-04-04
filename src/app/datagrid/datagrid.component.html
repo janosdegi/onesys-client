@@ -1,0 +1,103 @@
+<div style="{ height: 100%; width: 100%;}"></div>
+<div class="dgcard">
+
+<!--  {{ customerState$ | async }}   -->
+
+
+  <h2 class="maincolor2">Customers</h2>
+
+  <ng-container *ngIf="(customerState$ | async) as state" [ngSwitch]="state.appState">
+    <ng-container *ngSwitchCase="'APP_ERROR'"><span style="color: red">{{ state.error | json }}</span></ng-container>
+<!--    <ng-container *ngSwitchCase="'APP_LOADING'">-->
+<!--      <div class="d-flex justify-content-center mt-4">-->
+<!--        <div class="spinner-border">-->
+<!--          <span class="visually-hidden">Loading...</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </ng-container>-->
+<!--    <ng-container *ngSwitchCase="'APP_LOADED'">-->
+      <table class="table table-striped ">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Photo</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor="let customer of state.appData.payload.page.content; let i = index">
+            <th scope="row">{{ customer.id }}</th>
+          <td><img [src]="customer.imageUrl" width="27" height="27" class="img-circle"/></td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ customer.phone }}</td>
+            <td><span class="badge " [ngClass]="[ customer.status === 'ACTIVE' ? ' bg-success' : '',
+                                                  customer.status === 'INACTIVE' ? ' bg-light text-dark' : '',
+                                                  customer.status === 'IN PROGRESS' ? ' bg-primary' : '',
+                                                  customer.status === 'BANNED' ? ' bg-danger' : '',
+                                                ]">{{ customer.status }}</span></td>
+        </tr>
+
+
+        </tbody>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+
+          <li class="page-item" *ngFor="let pageNr of [].constructor(state.appData.payload.page.totalPages); let i = index">
+            <a class="page-link" (click)="getPage(i)">
+              {{ i+1 }}
+            </a>
+          </li>
+
+          <li class="page-item">
+            <a class="page-link" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </ng-container>
+<!--  </ng-container>-->
+</div>
+
+
+<!--<li class="page-item"><a class="page-link" href="#">1</a></li>-->
+<!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+
+<!--<tr *ngFor="let dgitem of dgitems">-->
+<!--  <th scope="row">{{dgitem.id}}</th>-->
+<!--  <td>{{dgitem.firstname}}</td>-->
+<!--  <td>{{dgitem.lastname}}</td>-->
+<!--  <td>&#64;{{dgitem.handle}}</td>  &lt;!&ndash; &#64; -> @&ndash;&gt;-->  <!-- &#64; -> @-->
+<!--</tr>-->
+
+<!--<tr>-->
+<!--  <th scope="row">1</th>-->
+<!--  <td>Mark</td>-->
+<!--  <td>Otto</td>-->
+<!--  <td>&#64;mdo</td>  &lt;!&ndash; &#64; -> @&ndash;&gt;-->
+<!--</tr>-->
+<!--<tr>-->
+<!--  <th scope="row">2</th>-->
+<!--  <td>Jacob</td>-->
+<!--  <td>Thornton</td>-->
+<!--  <td>&#64;fat</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--  <th scope="row">3</th>-->
+<!--  <td colspan="2">Larry the Bird</td>-->
+<!--  <td>&#64;twitter</td>-->
+<!--</tr>-->

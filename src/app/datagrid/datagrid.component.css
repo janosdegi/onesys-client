@@ -1,0 +1,25 @@
+.dgcard {
+
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+  height: 60%;
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px 25px;
+  gap: 13px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  /*box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;*/
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);*/
+}
+
+.maincolor2 {
+  color: #6346cb;
+  /*font-weight: bold;*/
+}
+

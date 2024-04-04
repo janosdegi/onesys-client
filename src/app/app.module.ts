@@ -8,10 +8,12 @@ import { LoginComponent } from './access/login/login.component';
 import { SignupComponent } from './access/login/signup/signup.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { DatagridComponent } from './datagrid/datagrid.component';
 
 const appRoutes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'datagrid', component: DatagridComponent},
   // {path: 'recipes', component: RecipesComponent, canActivate: [canActivate], children: [
   //     {path: ':id', component: RecipesComponent}
   //   ]},
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    DatagridComponent
   ],
   imports: [
     BrowserModule,
