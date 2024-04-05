@@ -6,6 +6,7 @@ import {Page} from "./page";
 import {HttpErrorResponse} from "@angular/common/http";
 import {CustomerHttpService} from "./customer.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-datagrid',
@@ -13,15 +14,15 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
   styleUrl: './datagrid.component.css'
 })
 export class DatagridComponent implements OnInit {
-  dgitems = [
-    { id: '1', firstname: 'Mark', lastname: 'Otto', handle: 'mdo' },
-    { id: '2', firstname: 'Jacob', lastname: 'Thornton', handle: 'fat' },
-    { id: '3', firstname: 'Larry the Bird', lastname: '', handle: 'twitter' }
-  ];
+  // dgitems = [
+  //   { id: '1', firstname: 'Mark', lastname: 'Otto', handle: 'mdo' },
+  //   { id: '2', firstname: 'Jacob', lastname: 'Thornton', handle: 'fat' },
+  //   { id: '3', firstname: 'Larry the Bird', lastname: '', handle: 'twitter' }
+  // ];
 
   customerState$: Observable<{ appState: string, appData?:ApiResponse<Page>, error?: HttpErrorResponse }>;
 
-  constructor(private customerService: CustomerHttpService) {
+  constructor(private customerService: CustomerHttpService, private router: Router) {
   }
 
   ngOnInit() {
@@ -43,5 +44,16 @@ export class DatagridComponent implements OnInit {
         startWith({appState: 'APP_LOADING'}),
         catchError( (error: HttpErrorResponse) => of({appState: 'APP_ERROR', error}) )
       )
+  }
+
+  startWorkflow(status: string) {
+    console.log("startWorkflow")
+    console.log("customer.status: " + status);
+    if (status === 'ACTIVE') {
+      this.router.navigate(['/ddae_wf'])
+    }
+    if (status === 'BANNED') {
+      this.router.navigate(['/dete_wf'])
+    }
   }
 }

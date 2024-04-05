@@ -9,11 +9,15 @@ import { SignupComponent } from './access/login/signup/signup.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { DatagridComponent } from './datagrid/datagrid.component';
+import { DdaeWfComponent } from './workflows/ddae-wf/ddae-wf.component';
+import { DeteWfComponent } from './workflows/dete-wf/dete-wf.component';
 
 const appRoutes: Routes = [
   {path: '', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'datagrid', component: DatagridComponent},
+  {path: 'ddae_wf', component: DdaeWfComponent},
+  {path: 'dete_wf', component: DeteWfComponent},
   // {path: 'recipes', component: RecipesComponent, canActivate: [canActivate], children: [
   //     {path: ':id', component: RecipesComponent}
   //   ]},
@@ -31,7 +35,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    DatagridComponent
+    DatagridComponent,
+    DdaeWfComponent,
+    DeteWfComponent
   ],
   imports: [
     BrowserModule,

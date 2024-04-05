@@ -37,11 +37,17 @@
             <td>{{ customer.email }}</td>
             <td>{{ customer.address }}</td>
             <td>{{ customer.phone }}</td>
-            <td><span class="badge " [ngClass]="[ customer.status === 'ACTIVE' ? ' bg-success' : '',
-                                                  customer.status === 'INACTIVE' ? ' bg-light text-dark' : '',
-                                                  customer.status === 'IN PROGRESS' ? ' bg-primary' : '',
-                                                  customer.status === 'BANNED' ? ' bg-danger' : '',
-                                                ]">{{ customer.status }}</span></td>
+<!--            <td><button type="button" class="btn btn-primary" (click)="startWorkflow(customer)">{{customer.status}}</button></td>-->
+            <td><button type="button" class="btn " [ngClass]="[ customer.status === 'ACTIVE' ? ' btn-success' : '',
+                                                                customer.status === 'INACTIVE' ? ' btn-light' : '',
+                                                                customer.status === 'IN PROGRESS' ? ' btn-primary' : '',
+                                                                customer.status === 'BANNED' ? ' btn-danger' : '',
+            ]" (click)="startWorkflow(customer.status)">{{customer.status}}</button></td>
+<!--          <td><span class="badge " [ngClass]="[ customer.status === 'ACTIVE' ? ' bg-success' : '',-->
+<!--                                                  customer.status === 'INACTIVE' ? ' bg-light text-dark' : '',-->
+<!--                                                  customer.status === 'IN PROGRESS' ? ' bg-primary' : '',-->
+<!--                                                  customer.status === 'BANNED' ? ' bg-danger' : '',-->
+<!--                                                ]">{{ customer.status }}</span></td>-->
         </tr>
 
 
